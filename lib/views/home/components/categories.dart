@@ -1,117 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/utils/const.dart';
 
-class Categories extends StatefulWidget {
-  
-
+class Categories extends StatelessWidget {
   const Categories({super.key});
 
   @override
-  State<Categories> createState() => _CategoriesState();
-}
-
-List<Map<String, dynamic>> categories = [
-  {
-    "icon": Icons.local_drink,
-    "text": "Drinkware"
-  },
-  {
-    "icon": Icons.color_lens,
-    "text": "Color Drop"
-  },
-  {
-    "icon": Icons.card_giftcard,
-    "text": "Bundles"
-  },
-  {
-    "icon": Icons.accessibility,
-    "text": "Accessories"
-  },
-];
-
-int selectedIndex = 0;
-
-class _CategoriesState extends State<Categories> {
-  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 23),
+      padding: EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               Text(
-            "Categories",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: textColor,
-            ),
-          ),
-          Spacer(),
-          GestureDetector(
-            onTap: () {},
-            child: Text(
-              "View All",
-              style: TextStyle(
-                color: Color(0xFF236A91),
-                fontSize: 16,
-                fontWeight: FontWeight.bold
+                "Categories",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                ),
               ),
-            ),
-          ),
+              Spacer(),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 16,
+                  ),
+                ),
+              ),
             ],
           ),
-          SizedBox(height: defaultPadding),
-          SizedBox(
-            height: 65,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal, 
-              itemCount: categories.length,
-              itemBuilder: (context, index) => _buildCategory(index), 
-            ),
-          )
         ],
-      ), 
-    );
-  }
-
-  GestureDetector _buildCategory(int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.all(10), //kurangi padding agar lebih kecil
-              decoration: BoxDecoration(
-                color: selectedIndex == index ? primaryColor.withValues(alpha: 0.2) : Colors.grey.withValues(alpha: 0.0),
-                shape: BoxShape.circle
-              ),
-              child: Icon(
-                categories[index]["icon"],
-                color: selectedIndex == index ? primaryColor : secondaryColor,
-                size: 20,
-              ),
-            ),
-            SizedBox(height: 7),
-            Text(
-              categories[index]["text"],
-              style: TextStyle(
-                color: selectedIndex == index ? primaryColor : secondaryColor,
-                fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal,
-                fontSize: 12
-              ),
-            )
-          ],
-        ),
       ),
     );
   }

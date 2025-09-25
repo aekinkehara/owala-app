@@ -16,29 +16,26 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 139, 34, 26),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 70,),
-            Text(
-              "Welcome Back",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: textColor
-              ),
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [  
+            SizedBox(height: 35),
+            Image.asset(
+          "assets/images/VW logo.png",
+          fit: BoxFit.contain,
+          height: 150,
             ),
-            SizedBox(height: 8,),
             Text(
-              "Please enter a form to login to this app",
+              "Sign In",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 25,
                 color: textColor,
               ),
             ),
-            SizedBox(height: 60,),
+            SizedBox(height: 15),
             Form(
               key: _formKey,
               child: Column(
@@ -55,7 +52,10 @@ class LoginScreen extends StatelessWidget {
                     label: "Password",
                     hintText: "Enter your password",
                     obscureText: true,
-                    suffixIcon: Icon(Icons.visibility_off),
+                    suffixIcon: Icon(
+                    Icons.visibility_off,
+                    color: Colors.white,
+                    ),
                     validator: Validators.validatePassword,
                   ),
                   SizedBox(height: 10),
@@ -63,19 +63,30 @@ class LoginScreen extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {},
-                      child: Text("Forgot Password"),
+                      child: Text(
+                        "Forgot Password",
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),
-                  AuthButton(
-                    text: "Sign In",
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacementNamed(context, '/catalogue');
-                      }
-                    },
-                    backgroundColor: primaryColor,
-                    textColor: Colors.white,
+                  Container(
+                     decoration: BoxDecoration(
+                    border: Border.fromBorderSide(defaultBorder),
+                  ),
+                    child: AuthButton(
+                      text: "Sign In",
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacementNamed(context, '/catalogue');
+                        }
+                      },
+                      backgroundColor: Colors.transparent,
+                      textColor: Colors.white,
+                      
+                    ),
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -104,20 +115,30 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
-                  SocialAuthButton(
-                    assetIcon: "assets/icons/google_logo.svg",
-                    label: "Sign in with Google",
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    onPressed: () {},
+                  Container(
+                  decoration: BoxDecoration(
+                    border: Border.fromBorderSide(defaultBorder),
+                  ),
+                    child: SocialAuthButton(
+                      assetIcon: "assets/icons/google_logo.svg",
+                      label: "Sign in with Google",
+                      backgroundColor: Colors.transparent,
+                      foregroundColor: Colors.white,
+                      onPressed: () {},
+                    ),
                   ),
                   SizedBox(height: 20),
-                  SocialAuthButton(
-                    assetIcon: "assets/icons/apple_logo.svg",
-                    label: "Sign in with Apple",
-                    backgroundColor: Colors.black,
-                    foregroundColor: Colors.white,
-                    onPressed: () {},
+                  Container(
+                     decoration: BoxDecoration(
+                    border: Border.fromBorderSide(defaultBorder),
+                  ),
+                    child: SocialAuthButton(
+                      assetIcon: "assets/icons/apple_logo.svg",
+                      label: "Sign in with Apple",
+                      backgroundColor: Colors.transparent,
+                      foregroundColor: Colors.white,
+                      onPressed: () {},
+                    ),
                   ),
                   SizedBox(height: 30),
                   Row(
@@ -131,7 +152,12 @@ class LoginScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () => Navigator.pushNamed(context, '/register'),
-                        child: Text("Register"),
+                        child: Text(
+                          "Register",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                          ),
                       )
                     ],
                   )

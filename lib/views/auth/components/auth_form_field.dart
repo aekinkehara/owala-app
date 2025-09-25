@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AuthFormField extends StatelessWidget {
+  
   final TextEditingController controller;
   final String label;
   final String? hintText;
   final bool obscureText;
   final Widget? suffixIcon;
-  final String? Function(String?) ? validator;
+  final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final FocusNode? focusNode;
 
-  const AuthFormField({super.key, required this.controller, required this.label, this.hintText, this.obscureText = false, this.suffixIcon, this.validator, this.keyboardType});
-
+  const AuthFormField({super.key, required this.controller, required this.label, this.hintText, this.obscureText = false, this.suffixIcon, this.validator, this.keyboardType, this.focusNode});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +25,25 @@ class AuthFormField extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 8,),
         TextFormField(
           controller: controller,
+          focusNode: focusNode,
           obscureText: obscureText,
           keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hintText,
+            hintStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 16
+            ),
             suffixIcon: suffixIcon,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8)),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white, width: 1)
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white)
+            )
           ),
           validator: validator,
         )

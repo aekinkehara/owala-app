@@ -23,9 +23,9 @@ class _OwalaAppState extends State<OwalaApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Owala App",
+      title: "Vivienne Westwood",
       theme: ThemeData(
-        fontFamily: 'Plus Jakarta Sans',
+        fontFamily: 'Helvetica',
         visualDensity: VisualDensity.adaptivePlatformDensity, // mengatur kepadatan di setiap platform
         textTheme: TextTheme(
           bodyMedium: TextStyle(color: textColor),
@@ -35,7 +35,7 @@ class _OwalaAppState extends State<OwalaApp> {
       ),
       // initialRoute: utk mendefinisikan kelas apa yang akan tampil pertama kali 
       //saat aplikasi dijalankan 
-      initialRoute: '/login',
+      initialRoute: '/onboarding',
       routes: {
         '/onboarding' : (context) => OnboardingScreen(),
         '/login' : (context) => LoginScreen(),

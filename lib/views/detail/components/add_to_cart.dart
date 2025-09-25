@@ -11,59 +11,36 @@ class AddToCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: defaultPadding),
+      padding: EdgeInsets.zero,
       child: Row(
         children: [
-          Container(
-            margin: EdgeInsets.only(right: defaultPadding),
-            height: 50,
-            width: 54,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: product.color),
-            ),
-            child: IconButton(
-              icon: Icon(Icons.add_shopping_cart_outlined),
-              onPressed: () {
-                // TODO 1: menambahkan produk ke halaman keranjang
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: 
-                    Text("Succesfully Added ${product.title}"),
-                    duration: Duration(seconds: 2),
-                  )
-                );
-              },
-            ),
-          ),
           Expanded(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: product.color,
-                maximumSize: Size.fromHeight(50),
+                backgroundColor: Colors.black,
+                minimumSize: Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
-                )
+                  borderRadius: BorderRadius.zero, // tombol tidak bulet
+                ),
               ),
               onPressed: () {
-                // TODO 2: direct button buy now ke halaman cart
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: 
-                    Text("${product.title} is purchased"),
+                    content: Text("${product.title} is purchased"),
                     duration: Duration(seconds: 2),
-                  )
+                  ),
                 );
               },
               child: Text(
-                "Buy Now",
+                "Add to Cart",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: textColor
+                  color: textColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

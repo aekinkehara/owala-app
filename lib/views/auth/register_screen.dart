@@ -16,29 +16,26 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 139, 34, 26),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 60),
+            SizedBox(height: 35),
+            Image.asset(
+          "assets/images/VW logo.png",
+          fit: BoxFit.contain,
+          height: 150,
+            ),
             Text(
               "Register",
               style: TextStyle(
                 color: textColor,
-                fontSize: 32,
-                fontWeight: FontWeight.bold
+                fontSize: 25,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
-              "Please create an account to continue",
-              style: TextStyle(
-                fontSize: 16,
-                color: textColor,
-              ),
-            ),
-            SizedBox(height: 30),
+            SizedBox(height: 15),
             Form(
               key: _formKey,
               child: Column(
@@ -64,7 +61,10 @@ class RegisterScreen extends StatelessWidget {
                     label: "Password",
                     hintText: "Enter your password",
                     obscureText: true,
-                    suffixIcon: Icon(Icons.visibility),
+                    suffixIcon: Icon(
+                      Icons.visibility,
+                      color: Colors.white,
+                      ),
                     validator: Validators.validatePassword,
                   ),
                   SizedBox(height: 20),
@@ -73,22 +73,30 @@ class RegisterScreen extends StatelessWidget {
                     label: "Confirm Password",
                     hintText: "Confirm your password",
                     obscureText: true,
-                    suffixIcon: Icon(Icons.visibility),
+                    suffixIcon: Icon(
+                      Icons.visibility,
+                      color: Colors.white,
+                      ),
                     validator: (value) => Validators.validateConfirmPassword(
                       value,
                       _passwordController.text
                     ),
                   ),
                   SizedBox(height: 50),
-                  AuthButton(
-                    text: "Sign Up",
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacementNamed(context, '/catalogue');
-                      }
-                    },
-                    backgroundColor: primaryColor,
-                    textColor: Colors.white,
+                  Container(
+                    decoration: BoxDecoration(
+                    border: Border.fromBorderSide(defaultBorder),
+                  ),
+                    child: AuthButton(
+                      text: "Sign Up",
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacementNamed(context, '/catalogue');
+                        }
+                      },
+                      backgroundColor: Colors.transparent,
+                      textColor: Colors.white,
+                    ),
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -102,7 +110,10 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () => Navigator.pushNamed(context, '/login'),
-                        child: Text("Sign In"),
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(color: Colors.white),
+                          ),
                       ),
                     ],
                   )

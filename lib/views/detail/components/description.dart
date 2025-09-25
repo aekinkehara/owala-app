@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
 
 class Description extends StatelessWidget {
   final ProductsModel product;
@@ -10,12 +9,13 @@ class Description extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: defaultPadding),
+      padding: EdgeInsets.symmetric(vertical: 0.1),
       child: Text(
         product.description,
         style: TextStyle(
           height: 1.5,
-          color: textColor,
+          fontWeight: FontWeight.w500,
+          color: Colors.black,
         ),
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/utils/const.dart';
 
 class CatalogueAppBar extends StatelessWidget implements PreferredSizeWidget{
   const CatalogueAppBar({super.key});
@@ -15,17 +14,17 @@ class CatalogueAppBar extends StatelessWidget implements PreferredSizeWidget{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             Text(
               "Location",
               style: TextStyle(
-                color: textColor,
+                color: const Color.fromARGB(255, 171, 171, 171),
                 fontSize: 14,
               ),
             ),
             Text(
               "Jakarta, Indonesia",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
                 fontSize: 16,
                 color: Colors.black,
               ),
@@ -36,11 +35,15 @@ class CatalogueAppBar extends StatelessWidget implements PreferredSizeWidget{
       actions: [
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.shopping_cart_outlined, color: Colors.black),
+          icon: Icon(Icons.person_3_outlined, color: Colors.black),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.notifications_none, color: Colors.black),
+          icon: Icon(Icons.shopping_bag_outlined, color: Colors.black),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.menu, color: Colors.black),
         ),
       ],
     );

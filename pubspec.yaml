@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -66,7 +67,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-    - assets/images/drinkware/
+    - assets/images/products/
     - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -81,11 +82,11 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Plus Jakarta Sans
+    - family: Helvetica
       fonts:
-        - asset: assets/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf
-        - asset: assets/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf
-        - asset: assets/fonts/plus-jakarta-sans/PlusJakartaSans-Light.ttf
+        - asset: assets/fonts/Helvetica/Helvetica.ttf
+        - asset: assets/fonts/Helvetica/Helvetica-Bold.ttf
+        - asset: assets/fonts/Helvetica/helvetica-light-587ebe5a59211.ttf
         
   #   - family: Trajan Pro
   #     fonts:

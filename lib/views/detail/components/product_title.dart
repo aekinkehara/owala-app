@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
 
 class ProductTitle extends StatelessWidget {
   final ProductsModel product;
@@ -9,66 +8,35 @@ class ProductTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Category
+        const Text(
+          "Accessories",
+          style: TextStyle(color: Colors.black),
+        ),
+        const SizedBox(height: 5),
 
-    const double imageWidthRatio = 0.58; //ini akan mengambil 35% dari lebar layar
-    const double imageHeightRatio = 0.36; //ini akan mengambil 20% dari tinggi layar
+        // Title
+        Text(
+          product.title,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 26,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
 
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 10,
-        bottom: 50,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Drinkware",
-            style: TextStyle(color: textColor),
+        // Price
+        Text(
+          product.getFormattedPrice(),
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 22,
           ),
-          SizedBox(height: 5),
-          Text(
-            product.title,
-            style: TextStyle(
-              color: textColor,
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Price",
-                      style: TextStyle(color: textColor),
-                    ),
-                    Text(
-                      product.getFormattedPrice(),
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Hero(
-                tag: "${product.id}",
-                child: Image.asset(
-                  product.image,
-                  width: size.width * imageWidthRatio,
-                  height: size.height * imageHeightRatio,
-                  fit: BoxFit.cover,
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

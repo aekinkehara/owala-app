@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
 import 'package:owala_app/views/detail/components/color_picker.dart';
 
 class ColorAndSize extends StatelessWidget {
@@ -15,13 +14,13 @@ class ColorAndSize extends StatelessWidget {
       children: [
         Expanded(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Colors", style: TextStyle(color: textColor)),
+              Text("Colors", style: TextStyle(color: Colors.black)),
               Row(
                 children: [
-                  ColorPicker(color: Color(0xFF90B4C6), isSelected: true),
+                  ColorPicker(color: Color.fromARGB(255, 151, 30, 30), isSelected: true),
                   ColorPicker(color: Color(0xFFFCEABF), isSelected: false),
-                  ColorPicker(color: Color(0xFF989493), isSelected: false),
                 ],
               ),
             ],
@@ -34,19 +33,19 @@ class ColorAndSize extends StatelessWidget {
               Text(
                 "Size",
                 style: TextStyle(
-                  color: textColor
+                  color: Colors.black,
                 ),
               ),
               RichText(
                 text: TextSpan(
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: Colors.black),
                   children: [
                     TextSpan(
-                      text: "${product.size} oz",
+                      text: "${product.size}",
                       style: Theme.of(context)
                       .textTheme
                       .titleLarge!
-                      .copyWith(fontWeight: FontWeight.bold)
+                      .copyWith(fontWeight: FontWeight.w500)
                     )
                   ]
                 ),
